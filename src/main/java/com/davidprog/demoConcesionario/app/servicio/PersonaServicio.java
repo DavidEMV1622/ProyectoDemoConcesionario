@@ -7,6 +7,7 @@ import java.util.List;
 public interface PersonaServicio {
 
     public List<Persona> encontrarTodos();
+
     public Persona encontrarPorId(int id);
 
     public void actualizarPersona(Persona persona);

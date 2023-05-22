@@ -64,4 +64,16 @@ public class PersonaNegocio {
             return "Fallo algo";
         }
     }
+
+    public String eliminar(int id){
+        Persona persona;
+        try{
+            this.personaImpl.eliminarPersona(id);
+            return "Eliminacion exitosa";
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Eliminacion Fallida";
+        }
+    }
 }

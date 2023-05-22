@@ -41,11 +41,12 @@ public class PersonaImpl implements PersonaServicio {
 
     @Override
     public void eliminarPersona(int id) {
-
-        Persona persona = this.repositorioPersona.encontrarPorId(id);
-
-        if (persona!=null) {
+        System.out.println("######"+id);
+        Persona persona = this.repositorioPersona.getById(id);
+        System.out.println("@@@@@@ "+persona.toString());
+        if (persona != null){
             this.repositorioPersona.delete(persona);
         }
+
     }
 }

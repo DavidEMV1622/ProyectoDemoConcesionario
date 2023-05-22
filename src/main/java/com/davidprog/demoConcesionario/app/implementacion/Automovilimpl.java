@@ -1,6 +1,7 @@
 package com.davidprog.demoConcesionario.app.implementacion;
 
 import com.davidprog.demoConcesionario.app.entity.Automovil;
+import com.davidprog.demoConcesionario.app.entity.Persona;
 import com.davidprog.demoConcesionario.app.repositorio.RepositorioAutomovil;
 import com.davidprog.demoConcesionario.app.servicio.AutomovilServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,12 @@ public class Automovilimpl implements AutomovilServicio {
 
     @Override
     public void elmiminarAutomovil(int id) {
-
-        Automovil automovil = this.repositorioAutomovil.encontrarPorId(id);
-        if (automovil!=null) {
+        System.out.println("######"+id);
+        Automovil automovil = this.repositorioAutomovil.getById(id);
+        System.out.println("@@@@@@ "+automovil.toString());
+        if (automovil != null){
             this.repositorioAutomovil.delete(automovil);
         }
+
     }
 }

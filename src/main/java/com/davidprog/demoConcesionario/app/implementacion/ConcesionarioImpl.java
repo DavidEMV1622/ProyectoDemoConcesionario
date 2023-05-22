@@ -1,6 +1,7 @@
 package com.davidprog.demoConcesionario.app.implementacion;
 
 import com.davidprog.demoConcesionario.app.entity.Concesionario;
+import com.davidprog.demoConcesionario.app.entity.Persona;
 import com.davidprog.demoConcesionario.app.repositorio.RepositorioConcesionario;
 import com.davidprog.demoConcesionario.app.servicio.ConcesionarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +43,12 @@ public class ConcesionarioImpl implements ConcesionarioServicio {
 
     @Override
     public void eliminarConcesionario(int id) {
-        Concesionario concesionario = this.repositorioConcesionario.encontrarPorId(id);
-
-        if(concesionario!=null) {
+        System.out.println("######"+id);
+        Concesionario concesionario = this.repositorioConcesionario.getById(id);
+        System.out.println("@@@@@@ "+concesionario.toString());
+        if (concesionario != null){
             this.repositorioConcesionario.delete(concesionario);
         }
+
     }
 }

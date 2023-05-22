@@ -2,6 +2,7 @@ package com.davidprog.demoConcesionario.app.negocio;
 
 import com.davidprog.demoConcesionario.app.dto.AutomovilDTO;
 import com.davidprog.demoConcesionario.app.entity.Automovil;
+import com.davidprog.demoConcesionario.app.entity.Persona;
 import com.davidprog.demoConcesionario.app.implementacion.Automovilimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -72,4 +73,17 @@ public class AutomovilNegocio {
             return "Fallo algo";
         }
     }
+
+    public String eliminar(int id){
+        Automovil automovil;
+        try{
+            this.automovilimpl.elmiminarAutomovil(id);
+            return "Eliminacion exitosa";
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Eliminacion Fallida";
+        }
+    }
+
 }

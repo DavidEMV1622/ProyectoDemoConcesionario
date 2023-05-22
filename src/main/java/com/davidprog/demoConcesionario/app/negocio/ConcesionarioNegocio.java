@@ -2,6 +2,7 @@ package com.davidprog.demoConcesionario.app.negocio;
 
 import com.davidprog.demoConcesionario.app.dto.ConcesionarioDTO;
 import com.davidprog.demoConcesionario.app.entity.Concesionario;
+import com.davidprog.demoConcesionario.app.entity.Persona;
 import com.davidprog.demoConcesionario.app.implementacion.ConcesionarioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -52,6 +53,18 @@ public class ConcesionarioNegocio {
             return "Se guardo los datos correctamente";
         } catch (Exception e) {
             return "Fallo algo";
+        }
+    }
+
+    public String eliminar(int id){
+        Concesionario concesionario;
+        try{
+            this.concesionarioImpl.eliminarConcesionario(id);
+            return "Eliminacion exitosa";
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Eliminacion Fallida";
         }
     }
 }

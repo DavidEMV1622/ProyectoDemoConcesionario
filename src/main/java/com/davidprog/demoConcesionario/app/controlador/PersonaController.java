@@ -92,4 +92,13 @@ public class PersonaController {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
+    @GetMapping("/eliminar/{id}")
+    public  ResponseEntity<Map<String,Object>> eliminarPersona(@PathVariable int id){
+        Map<String,Object> res=new HashMap<>();
+        String resp=this.personaNegocio.eliminar(id);
+        res.put("status","ok");
+        res.put("data",resp);
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
 }

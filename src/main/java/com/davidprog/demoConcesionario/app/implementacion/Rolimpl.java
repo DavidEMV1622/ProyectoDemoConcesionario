@@ -1,5 +1,6 @@
 package com.davidprog.demoConcesionario.app.implementacion;
 
+import com.davidprog.demoConcesionario.app.entity.Persona;
 import com.davidprog.demoConcesionario.app.entity.Rol;
 import com.davidprog.demoConcesionario.app.repositorio.RepositorioRol;
 import com.davidprog.demoConcesionario.app.servicio.RolServicio;
@@ -23,12 +24,16 @@ public class Rolimpl implements RolServicio {
     @Override
     public Rol encontrarPorId(int id) {
 
-        return this.repositorioRol.encontrarPorId(id);
+        Rol rol = this.repositorioRol.encontrarPorId(id);
+        return rol;
     }
 
     @Override
     public void actualizarRol(Rol rol) {
-        this.repositorioRol.save(rol);
+
+        if (rol.getId_rol()!=0) {
+            this.repositorioRol.save(rol);
+        }
     }
 
     @Override
@@ -39,9 +44,12 @@ public class Rolimpl implements RolServicio {
 
     @Override
     public void eliminarRol(int id) {
-        Rol rol = this.repositorioRol.encontrarPorId(id);
-        if (rol != null) {
+        System.out.println("######"+id);
+        Rol rol = this.repositorioRol.getById(id);
+        System.out.println("@@@@@@ "+rol.toString());
+        if (rol != null){
             this.repositorioRol.delete(rol);
         }
+
     }
 }

@@ -74,4 +74,14 @@ public class ConcesionarioControlador {
         res.put("data", respuesta);
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
+
+    @GetMapping("/eliminar/{id}")
+    public  ResponseEntity<Map<String,Object>> eliminarConcesionario(@PathVariable int id){
+        Map<String,Object> res=new HashMap<>();
+        String resp=this.concesionarioNegocio.eliminar(id);
+        res.put("status","ok");
+        res.put("data",resp);
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
 }
